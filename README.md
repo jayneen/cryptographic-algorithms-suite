@@ -2,11 +2,6 @@
 ## Description: 
 A Java implementation of 128-bit symmetric and asymmetric encryption applications. Part 1 provides symmetric cryptographic features based on an implementation of several SHA-3 and SHAKE inspired algorithms for hashing, tagging, encrypting, and decrypting. Part 2 provides additional asymmetric features including custom implementations of ECIES and Schnorr inspired algorithms for signing, verifying, encrypting, and decrypting.
 
-## Contributors:
-- Kassie Whitney
-- Zane Swaims
-- Evgeniia Nemynova
-
 ## Instructions:
 ### How to Run:
 1) Navigate to the folder containing the desired source code
@@ -41,3 +36,12 @@ The passphrase and key pair must match between all asymmetric operations.
 - SHA3SHAKE init() differentiates between SHA-3 and SHAKE inits internally by passing negative suffixes for SHAKE and positive for SHA-3.
 - Both SHAKE and SHA-3 algorithms pass all test vectors except Monte Carlo, where they fail on the first step.
 - Part 2 key generation: While the live demo used 512-bit byte array squeezed from passphrase via SHAKE-128, the output obtained this way does not match the specifications. Instead, the current version squeezes a 256-bit byte array as instructed in the specs, which generates valid and secure points on the curve. This approach is used in keyPairMode(), generateKeypair(), and asymmetricDecryptMode().
+
+## Credits
+### Developers:
+- Kassie Whitney
+- Zane Swaims
+- Evgeniia Nemynova
+
+### External Content
+- [NIST Specifications](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf) - SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions
