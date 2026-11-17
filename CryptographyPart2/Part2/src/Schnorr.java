@@ -22,7 +22,10 @@ public class Schnorr {
         SHA3SHAKE shake = new SHA3SHAKE();
         shake.init(-128);
         shake.absorb(passphrase.getBytes(StandardCharsets.UTF_8));
-        byte[] sBytes = shake.squeeze(64);
+
+        // TODO change to 64 for live demo output
+        byte[] sBytes = shake.squeeze(32);
+
         BigInteger s = new BigInteger(sBytes).mod(r);
         byte[] nonce = new byte[32];
         SecureRandom secureRandom = new SecureRandom();

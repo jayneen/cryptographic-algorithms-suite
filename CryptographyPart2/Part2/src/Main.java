@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main2 {
+public class Main {
     private static final Scanner input = new Scanner(System.in);
     private static boolean isDecrypt = false;
 
@@ -679,7 +679,9 @@ public class Main2 {
         shake.init(-128);
 
         shake.absorb(passphrase.getBytes(StandardCharsets.UTF_8));
-        byte[] absorbedPass = shake.squeeze(64);
+
+        // TODO change to 64 for live demo output
+        byte[] absorbedPass = shake.squeeze(32);
         // System.out.println("absorbedPass hex: " + bytesToHex(absorbedPass));
         BigInteger s = new BigInteger(absorbedPass);
         s = s.mod(ed.getR());
@@ -832,7 +834,9 @@ public class Main2 {
         SHA3SHAKE shake = new SHA3SHAKE();
         shake.init(-128);
         shake.absorb(passphrase.getBytes(StandardCharsets.UTF_8));
-        byte[] absorbedPass = shake.squeeze(64);
+
+        // TODO change to 64 for live demo output
+        byte[] absorbedPass = shake.squeeze(32);
         BigInteger S = new BigInteger(1, absorbedPass);
         S = S.mod(ed.getR());
 
